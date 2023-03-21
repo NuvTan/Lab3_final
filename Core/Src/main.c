@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define IC_BUFFER_SIZE 20
+#define IC_BUFFER_SIZE 6
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -116,7 +116,6 @@ HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 HAL_TIM_Base_Start(&htim2);
 HAL_TIM_IC_Start_DMA(&htim2, TIM_CHANNEL_1, InputCaptureBuffer, IC_BUFFER_SIZE);
 
-//HAL_TIM_Base_Start(htim)
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -144,7 +143,7 @@ HAL_TIM_IC_Start_DMA(&htim2, TIM_CHANNEL_1, InputCaptureBuffer, IC_BUFFER_SIZE);
 			  duty = 0;
 		  }
 
-		  timestamp = HAL_GetTick()+500;
+		  timestamp = HAL_GetTick()+100;
 
 		  averageRisingedgePeriod = IC_Calc_Period();
 		  one_period__motor = (averageRisingedgePeriod *12*64)/(1000000.0);
